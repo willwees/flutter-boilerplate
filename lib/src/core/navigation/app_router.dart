@@ -17,20 +17,33 @@ class AppRouter {
   static final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
 
   static final GoRouter router = GoRouter(
-    // initialLocation: AppPaths.splash,
-    initialLocation: AppPaths.home,
+    initialLocation: AppPaths.splash,
     debugLogDiagnostics: true,
     navigatorKey: rootNavigatorKey,
     routes: <RouteBase>[
-      // GoRoute(
-      //   name: AppRoutes.splash,
-      //   path: AppPaths.splash,
-      //   builder: (BuildContext context, GoRouterState state) => const SplashPage(),
-      // ),
+      GoRoute(
+        name: AppRoutes.splash,
+        path: AppPaths.splash,
+        builder: (BuildContext context, GoRouterState state) => const SplashPage(),
+      ),
       GoRoute(
         name: AppRoutes.home,
         path: AppPaths.home,
-        builder: (BuildContext context, GoRouterState state) => const HomePage(),
+        pageBuilder: (BuildContext context, GoRouterState state) {
+          // Navigate to the home page with a fade transition.
+          return CustomTransitionPage<void>(
+            key: state.pageKey,
+            child: const HomePage(),
+            transitionDuration: Durations.extralong4,
+            transitionsBuilder: (BuildContext context, Animation<double> animation,
+                Animation<double> secondaryAnimation, Widget child) {
+              return FadeTransition(
+                opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
+                child: child,
+              );
+            },
+          );
+        },
       ),
     ],
   );
