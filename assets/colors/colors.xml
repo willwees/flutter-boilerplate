@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="green">#2BBE72</color>
+    <color name="greenAccent">#319C4C</color>
+    <color name="orange">#F5A623</color>
+    <color name="blue">#54A7DC</color>
+    <color name="red">#D02630</color>
+    <color name="lightGreen">#81BD53</color>
+    <color name="lightGreenAccent">#DEF6CC</color>
+    <color name="lightYellow">#FFF5C6</color>
+    <color name="lightGray">#F5F5F5</color>
+    <color name="lightGrayAccent">#E7E7E7</color>
+    <color name="black100">#121314</color>
+    <color name="black60">#676768</color>
+    <color name="black40">#909191</color>
+</resources>
