@@ -25,5 +25,9 @@ doc/api/
 
 .flutter-plugins
 .flutter-plugins-dependencies
-**/*.gen.dart
 .DS_Store
+
+*.g.dart
+*.gen.dart
+*.gr.dart
+*.freezed.dart

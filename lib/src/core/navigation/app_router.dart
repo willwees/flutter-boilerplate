@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/features.dart';
@@ -33,7 +34,6 @@ class AppRouter {
           // Navigate to the home page with a fade transition.
           return CustomTransitionPage<void>(
             key: state.pageKey,
-            child: const HomePage(),
             transitionDuration: Durations.extralong4,
             transitionsBuilder: (BuildContext context, Animation<double> animation,
                 Animation<double> secondaryAnimation, Widget child) {
@@ -42,6 +42,10 @@ class AppRouter {
                 child: child,
               );
             },
+            child: BlocProvider<HomeBloc>(
+              create: (_) => HomeBloc(),
+              child: const HomePage(),
+            ),
           );
         },
       ),
